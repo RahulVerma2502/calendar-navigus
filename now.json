@@ -1,0 +1,13 @@
+{
+    "version": 2,
+    "name": "calender-appointment",
+    "builds": [{
+        "src": "dprojx/wsgi.py",
+        "use": "@ardnt/now-python-wsgi",
+        "config": { "maxLambdaSize": "15mb" }
+    }],
+    "routes": [{
+        "src": "/(.*)",
+        "dest": "dprojx/wsgi.py"
+    }]
+}

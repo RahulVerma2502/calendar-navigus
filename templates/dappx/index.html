@@ -1,0 +1,14 @@
+{% extends "dappx/base.html" %}
+{% block body_block %}
+<div class="container">
+  <div class="jumbotron">
+    <h1>Welcome to the Schedule Appointment Using Calendar!</h1>
+    {% if user.is_authenticated %}
+        <h2>Hello {{ user.username }}</h2>
+    {% else %}
+        <h2>Register yourself and book/get the slot</h2>
+        <h2>If you registered then login</h2>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

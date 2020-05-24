@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Calendar Appointment</title>
+    <!-- Latest compiled and minified CSS -->
+      {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+    <!--datepicker source-->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="{% static 'date/jquery.timepicker.js' %}"></script>
+	<link rel="stylesheet" type="text/css" href="{% static 'date/jquery.timepicker.css' %}" />
+	<script type="text/javascript" src="{% static 'date/bootstrap-datepicker.js' %}"></script>
+	<link rel="stylesheet" type="text/css" href="{% static 'date/bootstrap-datepicker.css' %}"/>
+	<script src="https://www.jonthornton.com/Datepair.js/dist/datepair.js"></script>
+	<script src="https://www.jonthornton.com/Datepair.js/dist/jquery.datepair.js"></script>
+</head>
+  <body style="background-image: url('/static/images/bg.jpeg');">
+<!--    <nav class="navbar navbar-default navbar-static-top">-->
+<div >
+      <div class="container">
+         	<div class="row studnet_nav">
+            {% if user.is_authenticated %}
+   	             <div class="col-sm-8">
+						     <ul class="nav nav-pills">
+								  <li class="nav-item">
+								    <a class="nav-link" href='{% url "dappx:list_appointment"%}'>Scheduled Appointment</a>
+								  </li>
+								  <li class="nav-item">
+								    <a class="nav-link" href='{% url "dappx:create_appointment"%}'>Make Appointment</a>
+								  </li>
+								  <li class="nav-item">
+								    <a class="nav-link" href='{% url "dappx:get_appointment"%}'>Receive Appointment</a>
+								  </li>
+
+							  </ul>
+                  </div>
+
+                 <div class="col-sm-4">
+					     <ul class="nav nav-pills">
+							  <li class="nav-item">
+							    <p>Hello {{user_name}}</p>
+							  </li>
+							  <li class="nav-item">
+							    <a class="nav-link" href='{% url "logout"%}'>Leave App</a>
+							  </li>
+						  </ul>
+	       		 </div>
+            {% else %}
+   	             <div class="col-sm-8">
+						     <ul class="nav nav-pills">
+								  <li class="nav-item">
+								    <a class="nav-link" href='{% url "dappx:register"%}'>Sign Up</a>
+								  </li>
+								  <li class="nav-item">
+								    <a class="nav-link" href='{% url "dappx:user_login"%}'>Login</a>
+								  </li>
+
+							  </ul>
+                  </div>
+            {% endif %}
+	        </div>
+      </div>
+<!--    </nav>-->
+    <div class="container">
+    {% block body_block %}
+    {% endblock %}
+    </div>
+
+</div>
+  </body>
+</html>
