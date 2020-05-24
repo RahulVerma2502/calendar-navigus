@@ -26,7 +26,7 @@ SECRET_KEY = 'oxokk^6120wu8y#!d*j%q)&5j2n=&us26laxgtp^q1gv@d0eri'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-#ALLOWED_HOSTS = ['.now.sh', 'appointment-navigus.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['.now.sh', 'appointment-navigus.herokuapp.com', '127.0.0.1','appointmentschedulingapp.herokuapp.com']
 
 # Application definition
 
